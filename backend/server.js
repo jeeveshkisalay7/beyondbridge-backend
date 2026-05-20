@@ -10,6 +10,9 @@ const webhookRoutes = require('./routes/webhook');
 const app  = express();
 const PORT = process.env.PORT || 3001;
 
+// Trust the reverse proxy (Render) to allow express-rate-limit to read IPs
+app.set('trust proxy', 1);
+
 // ─── MIDDLEWARE ───────────────────────────────────────────
 app.use(cors({
   origin: process.env.FRONTEND_URL || 'http://localhost:3000',
