@@ -39,7 +39,7 @@ exports.signup = async (req, res) => {
 
     // Generate & store OTP
     const otp       = generateOTP();
-    const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString(); // 10 min
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '); // 10 min
     await db.run('INSERT INTO otps (email, otp, expires_at) VALUES (?, ?, ?)', email, otp, expiresAt);
 
     // Send OTP
@@ -98,7 +98,7 @@ exports.resendOTP = async (req, res) => {
     if (user.is_verified) return res.status(400).json({ error: 'This account is already verified.' });
 
     const otp       = generateOTP();
-    const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString();
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' ');
     await db.run('INSERT INTO otps (email, otp, expires_at) VALUES (?, ?, ?)', email, otp, expiresAt);
     await sendOTPEmail(email, user.first_name, otp);
 

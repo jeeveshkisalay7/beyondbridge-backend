@@ -32,21 +32,29 @@
     <div class="screen" id="screen-landing" role="button" tabindex="0" aria-label="Enter site">
         <!-- Border Beam Animation Element -->
         <div class="border-beam-wrapper"></div>
-        
+
         <div class="landing-inner">
             <p class="landing-eyebrow">MBA &amp; Career Transition Advisory</p>
             <div class="landing-logo" style="margin: 24px 0;">
                 <img src="assets/custom-logo.png" alt="Beyond Bridge" class="logo-main" style="height: 64px;">
             </div>
             <p class="landing-tagline">Navigating the Shift.</p>
-            <p id="landing-stagger-text" style="font-family: var(--font-sans); font-size: 0.9rem; color: var(--text-dim); margin-top: 12px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                <span style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.30s forwards;">From</span>
-                <span style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.36s forwards;">Sea</span>
-                <span style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.42s forwards;">&amp;</span>
-                <span style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.48s forwards;">Service</span>
-                <span style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.54s forwards;">to</span>
-                <span style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.60s forwards;">the</span>
-                <span style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.66s forwards;">Boardroom.</span>
+            <p id="landing-stagger-text"
+                style="font-family: var(--font-sans); font-size: 0.9rem; color: var(--text-dim); margin-top: 12px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <span
+                    style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.30s forwards;">From</span>
+                <span
+                    style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.36s forwards;">Sea</span>
+                <span
+                    style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.42s forwards;">&amp;</span>
+                <span
+                    style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.48s forwards;">Service</span>
+                <span
+                    style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.54s forwards;">to</span>
+                <span
+                    style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.60s forwards;">the</span>
+                <span
+                    style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.66s forwards;">Boardroom.</span>
             </p>
             <p class="landing-cta">Click anywhere to enter</p>
         </div>
@@ -57,19 +65,22 @@
   ─────────────────────────────────────────────────────────────── -->
     <div class="screen hidden" id="screen-auth" style="z-index: 1000;">
         <!-- Close Button -->
-        <button onclick="closeAuth()" style="position: absolute; top: 30px; right: 40px; background: none; border: none; color: var(--warm-white); font-size: 2rem; cursor: pointer; z-index: 100;">&times;</button>
+        <button onclick="closeAuth()"
+            style="position: absolute; top: 30px; right: 40px; background: none; border: none; color: var(--warm-white); font-size: 2rem; cursor: pointer; z-index: 100;">&times;</button>
 
 
         <!-- LEFT: branding panel -->
         <div class="auth-panel-left">
             <div class="auth-brand fade-enter">
-                <img src="assets/custom-logo.png" alt="Beyond Bridge" class="logo-main" style="height: 52px; object-fit: contain; margin-bottom: 12px;">
+                <img src="assets/custom-logo.png" alt="Beyond Bridge" class="logo-main"
+                    style="height: 52px; object-fit: contain; margin-bottom: 12px;">
                 <div class="auth-brand-tag">MBA &amp; Career Transition Advisory</div>
             </div>
 
             <div class="auth-panel-quote fade-enter" style="transition-delay:0.15s">
                 <blockquote>
-                    "We help operational leaders translate command experience into compelling MBA and leadership narratives."
+                    "We help operational leaders translate command experience into compelling MBA and leadership
+                    narratives."
                     <cite>— Beyond Bridge</cite>
                 </blockquote>
             </div>
@@ -123,8 +134,10 @@
                         Sign In
                         <span class="spinner"></span>
                     </button>
-                    
-                    <div id="otp-container-login" style="display:none; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border);"></div>
+
+                    <div id="otp-container-login"
+                        style="display:none; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border);">
+                    </div>
                 </form>
             </div>
 
@@ -238,8 +251,10 @@
                         Create Account
                         <span class="spinner"></span>
                     </button>
-                    
-                    <div id="otp-container-signup" style="display:none; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border);"></div>
+
+                    <div id="otp-container-signup"
+                        style="display:none; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border);">
+                    </div>
                 </form>
             </div>
 
@@ -252,7 +267,28 @@
        SCRIPTS
   ─────────────────────────────────────────────────────────────── -->
     <script>
-                /* ── Login handler ──────────────────────────────────────────── */
+        /* ── Password Strength Handler ───────────────────────────────── */
+        function checkPwStrength(pw) {
+            const bar1 = document.getElementById('bar1');
+            const bar2 = document.getElementById('bar2');
+            const bar3 = document.getElementById('bar3');
+            if (!pw) {
+                bar1.style.background = '#e2e8f0';
+                bar2.style.background = '#e2e8f0';
+                bar3.style.background = '#e2e8f0';
+                return;
+            }
+            let strength = 0;
+            if (pw.length >= 8) strength += 1;
+            if (pw.match(/[a-z]/) && pw.match(/[A-Z]/)) strength += 1;
+            if (pw.match(/[0-9]/) || pw.match(/[^a-zA-Z0-9]/)) strength += 1;
+
+            bar1.style.background = strength >= 1 ? '#ef4444' : '#e2e8f0';
+            bar2.style.background = strength >= 2 ? '#eab308' : '#e2e8f0';
+            bar3.style.background = strength >= 3 ? '#22c55e' : '#e2e8f0';
+        }
+
+        /* ── Login handler ──────────────────────────────────────────── */
         async function handleLogin(e) {
             e.preventDefault();
             const btn = e.submitter || e.target.querySelector('button[type=submit]');
@@ -280,7 +316,7 @@
                         window.location.href = 'home.html';
                     }, 1200);
                 } else {
-                    if(data.needsVerification) {
+                    if (data.needsVerification) {
                         showNotif('⚠️ Please verify your email first.');
                         showOTPScreen(email);
                     } else {
@@ -336,7 +372,7 @@
                 });
                 const data = await res.json();
                 btn.classList.remove('loading');
-                
+
                 if (res.ok) {
                     showOTPScreen(payload.email);
                 } else {
@@ -353,20 +389,20 @@
         let currentSignupEmail = '';
         function showOTPScreen(email) {
             currentSignupEmail = email;
-            
+
             // Determine which form is active
             const isLogin = document.getElementById('tab-login').classList.contains('active');
             const targetContainer = isLogin ? document.getElementById('otp-container-login') : document.getElementById('otp-container-signup');
             const targetBtn = isLogin ? document.getElementById('btn-login-submit') : document.getElementById('btn-signup-submit');
-            
+
             // Hide the submit button
             targetBtn.style.display = 'none';
-            
+
             // Show success message if signing up
             if (!isLogin) {
                 document.getElementById('signup-success').classList.add('show');
             }
-            
+
             // Inject OTP UI matching the system
             targetContainer.style.display = 'block';
             targetContainer.innerHTML = `
@@ -386,7 +422,7 @@
                 </button>
                 <button type="button" onclick="resendOTP()" class="btn-ghost" style="width: 100%;">Resend Code</button>
             `;
-            
+
             // Scroll to it
             targetContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
         }
@@ -394,7 +430,7 @@
         async function verifyOTP() {
             const otp = document.getElementById('su-otp').value;
             const errEl = document.getElementById('otp-error');
-            if(!otp || otp.length !== 6) {
+            if (!otp || otp.length !== 6) {
                 errEl.textContent = 'Please enter a valid 6-digit code.';
                 errEl.classList.add('show');
                 return;
@@ -408,7 +444,7 @@
                     body: JSON.stringify({ email: currentSignupEmail, otp })
                 });
                 const data = await res.json();
-                
+
                 if (res.ok) {
                     localStorage.setItem('loggedIn', 'true');
                     localStorage.setItem('token', data.token);
@@ -434,7 +470,7 @@
                     body: JSON.stringify({ email: currentSignupEmail })
                 });
                 const data = await res.json();
-                if(res.ok) {
+                if (res.ok) {
                     showNotif('✓ New OTP sent to your email.');
                 } else {
                     showNotif('❌ ' + data.error);
