@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success - Beyond Bridge Advisory</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body { opacity: 0; animation: fadeIn 0.8s ease forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .section-padding { padding: 120px 60px; max-width: 800px; margin: 0 auto; text-align: center; }
+        .loader {
+            border: 4px solid var(--border);
+            border-top: 4px solid var(--accent);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 24px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .btn-primary { background: var(--accent); color: var(--dark); padding: 16px 32px; border-radius: 2px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s; text-decoration: none; display: inline-block; margin-top: 32px; }
+        .btn-primary:hover { background: #d32f2f; }
+    </style>
+</head>
+<body>
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 24px 60px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #ffffff; backdrop-filter: blur(10px); z-index: 100;">
+        <a href="home.html" style="text-decoration: none; display: flex; align-items: center;">
+            <img src="assets/custom-logo.png" alt="Beyond Bridge" class="logo-main" style="height: 48px; object-fit: contain; margin-top: -6px;">
+        </a>
+    </nav>
+
+    <section class="section-padding" id="status-container">
+        <div id="loading-state">
+            <div class="loader"></div>
+            <h2 style="font-family: var(--font-display); font-size: 2rem; color: var(--cream); margin-bottom: 16px;">Verifying Payment...</h2>
+            <p style="color: var(--text-dim);">Please do not close or refresh this page.</p>
+        </div>
+        
+        <div id="success-state" style="display: none;">
+            <h2 style="font-family: var(--font-display); font-size: 2.5rem; color: var(--accent); margin-bottom: 16px;">Payment Successful!</h2>
+            <p style="color: var(--cream); font-size: 1.1rem; margin-bottom: 16px;" id="success-msg"></p>
+            <p style="color: var(--text-dim); margin-bottom: 24px;">An invoice has been sent to your email and WhatsApp.</p>
+            <a href="dashboard.html" class="btn-primary">Go to Dashboard</a>
+        </div>
+
+        <div id="error-state" style="display: none;">
+            <h2 style="font-family: var(--font-display); font-size: 2.5rem; color: #ff5252; margin-bottom: 16px;">Payment Failed</h2>
+            <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 24px;" id="error-msg">We couldn't verify your payment. If money was deducted, it will be refunded automatically.</p>
+            <a href="book.html" class="btn-primary">Try Again</a>
+            <a href="contact.html" class="btn-ghost" style="display: block; margin-top: 16px; color: var(--text-dim); text-decoration: none;">Contact Support</a>
+        </div>
+    </section>
+
+    <script>
+        async function verifyPayment() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderId = urlParams.get('order_id');
+            const bookingId = urlParams.get('booking_id');
+
+            if (!orderId || !bookingId) {
+                showError('Missing payment details. Please contact support.');
+                return;
+            }
+
+            try {
+                const token = localStorage.getItem('token');
+                const headers = { 'Content-Type': 'application/json' };
+                if (token) headers['Authorization'] = `Bearer ${token}`;
+
+                const res = await fetch('https://beyondbridge-backend-1.onrender.com/api/booking/verify-payment', {
+                    method: 'POST',
+                    headers,
+                    body: JSON.stringify({ orderId, bookingId })
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    document.getElementById('loading-state').style.display = 'none';
+                    document.getElementById('success-state').style.display = 'block';
+                    document.getElementById('success-msg').textContent = data.message || `Your booking for ${data.packageName} is confirmed.`;
+                } else {
+                    showError(data.error || 'Payment verification failed.');
+                }
+            } catch (err) {
+                showError('Failed to connect to the server. If your payment was successful, please contact support.');
+            }
+        }
+
+        function showError(msg) {
+            document.getElementById('loading-state').style.display = 'none';
+            document.getElementById('error-state').style.display = 'block';
+            document.getElementById('error-msg').textContent = msg;
+        }
+
+        window.onload = verifyPayment;
+    </script>
+</body>
+</html>

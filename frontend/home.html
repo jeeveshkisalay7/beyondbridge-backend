@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Bridge - Home</title>
+    <!-- Use extracted style.css -->
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Shared page transition styles */
+        body { opacity: 0; animation: fadeIn 0.8s ease forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        
+        .section-padding { padding: 120px 60px; max-width: 1200px; margin: 0 auto; }
+        .text-center { text-align: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .card { padding: 48px; border: 1px solid var(--border); background: var(--charcoal); transition: transform 0.3s; }
+        .card:hover { transform: translateY(-8px); }
+    </style>
+</head>
+<body>
+        <!-- NAVBAR -->
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 24px 60px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #ffffff; backdrop-filter: blur(10px); z-index: 100;">
+
+
+
+
+
+        <a href="home.html" style="text-decoration: none; display: flex; align-items: center;">
+            <img src="assets/custom-logo.png" alt="Beyond Bridge" class="logo-main" style="height: 48px; object-fit: contain; margin-top: -6px;">
+        </a>
+        
+                <div class="nav-desktop-links" style="display: flex; gap: 24px; align-items: center; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">
+            <a href="home.html" style="color: var(--cream); text-decoration: none;">Home</a>
+            <a href="about.html" style="color: var(--cream); text-decoration: none;">About</a>
+            <a href="mariners.html" style="color: var(--cream); text-decoration: none;">For Mariners</a>
+            <a href="defence.html" style="color: var(--cream); text-decoration: none;">For Defence</a>
+            <a href="services.html" style="color: var(--cream); text-decoration: none;">Services</a>
+            <a href="pricing.html" style="color: var(--cream); text-decoration: none;">Pricing</a>
+            <a href="contact.html" style="color: var(--cream); text-decoration: none;">Contact</a>
+            
+            <!-- Dropdown -->
+            <div class="nav-dropdown">
+                <button class="nav-dropbtn" style="background: none; border: none; color: var(--text-dim); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 4px; font-family: var(--font-sans);">
+                    More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="nav-dropdown-content">
+                    <a href="pathways.html">MBA Pathways</a>
+                    <a href="process.html">Our Process</a>
+                    <a href="resources.html">Resources</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            
+            <a href="dashboard.html" class="nav-logged-in" style="color: var(--cream); text-decoration: none; border-left: 1px solid var(--border); padding-left: 24px;">Dashboard</a>
+            <a href="#" class="nav-logged-in" onclick="handleLogout()" style="color: var(--text-dim); text-decoration: none;">Logout</a>
+        </div>
+
+    </nav>
+    </div>
+
+    <!-- HERO -->
+    <section class="section-padding text-center">
+        <h1 style="font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1.05; margin-bottom: 32px;" class="fade-enter visible">From Sea & Service to the Boardroom.</h1>
+        <p style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--cream); max-width: 800px; margin: 0 auto 24px;" class="fade-enter visible">MBA admissions and career transition advisory for merchant navy professionals, defence officers, and service-background leaders ready to build a high-impact career ashore.</p>
+        <p style="color: var(--text-dim); max-width: 800px; margin: 0 auto 48px; line-height: 1.8;" class="fade-enter visible">You already have leadership, resilience, discipline, decision-making, and real-world responsibility. Beyond Bridge helps you translate that experience into a strong MBA story, select the right schools, build compelling applications, prepare for interviews, and move confidently into the next chapter of your career.</p>
+        
+        <div style="display: flex; gap: 16px; justify-content: center; margin-bottom: 64px;" class="fade-enter visible">
+            <a href="contact.html" class="btn-primary" style="text-decoration: none;">Book a Discovery Call</a>
+            <a href="pathways.html" class="btn-primary" style="text-decoration: none;">Explore MBA Pathways</a>
+        </div>
+
+        <!-- Trust Strip -->
+        <div style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 32px 0; color: var(--text-muted); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase;" class="fade-enter visible">
+            Built by ex-mariners. &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Guided by elite MBA experience. &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Designed for high-responsibility professionals.
+        </div>
+    </section>
+
+    <!-- WHY WE EXIST -->
+    <section style="background: var(--charcoal); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+        <div class="section-padding" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+            <div>
+                <h2 style="font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 24px; color: var(--cream);">Your background is powerful.<br>It only needs the right translation.</h2>
+                <p style="color: var(--text-dim); margin-bottom: 24px; line-height: 1.8;">Mariners and defence professionals often lead people, manage risk, operate under pressure, handle assets worth millions, make decisions with incomplete information, and work across cultures. Yet, MBA applications rarely make it easy to explain this experience in business-school language.</p>
+                <p style="color: var(--cream); line-height: 1.8;">Beyond Bridge closes that gap. We help you convert command, operations, logistics, crisis response, compliance, safety, stakeholder management, and global exposure into a clear, credible, and differentiated MBA application.</p>
+            </div>
+            <div style="height: 400px; background: url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&q=80') center/cover; filter: grayscale(100%) contrast(1.2); border: 1px solid var(--border);"></div>
+        </div>
+    </section>
+
+    <!-- WHO WE HELP -->
+    <section class="section-padding">
+        <h2 style="font-family: var(--font-display); font-size: 3rem; margin-bottom: 64px; text-align: center;">Who We Help</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 16px; color: var(--accent);">Merchant Navy Professionals</h3>
+                <p style="color: var(--text-dim); line-height: 1.6;">For officers, engineers, captains, chief officers, marine engineers, logistics professionals, shipping executives, and seafarers planning an MBA or career transition ashore.</p>
+            </div>
+            <div class="card">
+                <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 16px; color: var(--accent);">Defence & Ex-Defence</h3>
+                <p style="color: var(--text-dim); line-height: 1.6;">For officers, veterans, short-service commission officers, and service-background leaders seeking business education, leadership acceleration, and corporate transition.</p>
+            </div>
+            <div class="card">
+                <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 16px; color: var(--accent);">Service-Background Switchers</h3>
+                <p style="color: var(--text-dim); line-height: 1.6;">For professionals from aviation, logistics, infrastructure, operations, security, public service, and mission-critical environments who want to enter management roles.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT WE HELP YOU WITH -->
+    <section style="background: var(--charcoal); border-top: 1px solid var(--border);">
+        <div class="section-padding">
+            <h2 style="font-family: var(--font-display); font-size: 3rem; margin-bottom: 64px; text-align: center;">What We Help You With</h2>
+            <div class="grid-3">
+                <div style="padding: 32px; border-bottom: 1px solid var(--border);">
+                    <h3 style="color: var(--cream); margin-bottom: 12px;">MBA Profile Assessment</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Understand your strengths, gaps, competitiveness, and best-fit MBA options.</p>
+                </div>
+                <div style="padding: 32px; border-bottom: 1px solid var(--border);">
+                    <h3 style="color: var(--cream); margin-bottom: 12px;">School Selection</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Shortlist Indian, global, full-time, one-year, executive, and specialized MBA programs.</p>
+                </div>
+                <div style="padding: 32px; border-bottom: 1px solid var(--border);">
+                    <h3 style="color: var(--cream); margin-bottom: 12px;">Story & Positioning</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Convert your operational experience into a strong admissions narrative.</p>
+                </div>
+                <div style="padding: 32px; border-bottom: 1px solid var(--border);">
+                    <h3 style="color: var(--cream); margin-bottom: 12px;">Resume & Essays</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Build business-school-ready resumes, essays, SOPs, and recommendation strategies.</p>
+                </div>
+                <div style="padding: 32px; border-bottom: 1px solid var(--border);">
+                    <h3 style="color: var(--cream); margin-bottom: 12px;">Interview Preparation</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Prepare for MBA interviews, ISB/IIM interviews, global MBA interviews, and career discussions.</p>
+                </div>
+                <div style="padding: 32px; border-bottom: 1px solid var(--border);">
+                    <h3 style="color: var(--cream); margin-bottom: 12px;">Career Transition Advisory</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Understand post-MBA career options in consulting, strategy, operations, supply chain, and general management.</p>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 48px;">
+                <a href="services.html" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 4px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em;">View All Services →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR PHILOSOPHY -->
+    <section class="section-padding text-center">
+        <h2 style="font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 32px; max-width: 800px; margin-left: auto; margin-right: auto;">We do not write your story for you. We help you discover it, structure it, and present it with confidence.</h2>
+        <p style="color: var(--text-dim); max-width: 800px; margin: 0 auto; line-height: 1.8;">The strongest MBA applications are not built by copying templates. They are built by deep reflection, honest positioning, practical school research, and a sharp understanding of what admissions committees are really evaluating. Our role is to act as your advisor, sounding board, editor, strategist, and accountability partner throughout the journey.</p>
+    </section>
+
+    <!-- CTA -->
+    <section style="padding: 100px 60px; background: var(--accent); text-align: center;">
+        <h2 style="font-family: var(--font-display); font-size: 3rem; margin-bottom: 24px; color: var(--dark);">Ready to understand where you stand?</h2>
+        <p style="color: var(--dark); max-width: 600px; margin: 0 auto 40px; font-weight: 500;">Book a discovery call and get a practical view of your MBA readiness, target schools, career goals, and next steps.</p>
+        <a href="contact.html" style="background: var(--dark); color: var(--cream); padding: 16px 32px; text-decoration: none; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.1em; border-radius: 2px;">Start Your MBA Journey</a>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" style="padding: 100px 60px; background: var(--off-black); border-top: 1px solid var(--border);">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 style="font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 16px; text-align: center;">Questions before you begin?</h2>
+            <p style="text-align: center; color: var(--text-dim); margin-bottom: 48px;">Explore our <a href="faq.html" style="color: var(--accent); text-decoration: none;">Comprehensive FAQ Page</a> or start reading below.</p>
+            
+            <div style="border-top: 1px solid var(--border); padding: 24px 0; cursor: pointer;" onclick="const p = this.querySelector('p'); p.style.display = p.style.display === 'none' ? 'block' : 'none';">
+                <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 8px;">1. What is Beyond Bridge?</h3>
+                <p style="color: var(--text-dim); display: none; margin-top: 16px;">Beyond Bridge is a specialist MBA admissions and career transition advisory platform for merchant navy professionals, defence officers, veterans, and service-background leaders who want to move into business education and corporate careers.</p>
+            </div>
+            
+            <div style="border-top: 1px solid var(--border); padding: 24px 0; cursor: pointer;" onclick="const p = this.querySelector('p'); p.style.display = p.style.display === 'none' ? 'block' : 'none';">
+                <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 8px;">2. Is an MBA useful for merchant navy and defence professionals?</h3>
+                <p style="color: var(--text-dim); display: none; margin-top: 16px;">Yes, it can be highly useful for transitioning into consulting, strategy, operations, logistics, or general management. It converts operational experience into a recognized business credential.</p>
+            </div>
+            
+            <div style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 24px 0; cursor: pointer;" onclick="const p = this.querySelector('p'); p.style.display = p.style.display === 'none' ? 'block' : 'none';">
+                <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 8px;">3. Do you guarantee admission?</h3>
+                <p style="color: var(--text-dim); display: none; margin-top: 16px;">No. No ethical advisor can guarantee admission. We help improve application quality, positioning, clarity, and readiness, but final decisions are made by schools.</p>
+            </div>
+            
+            <div class="text-center" style="margin-top: 32px;">
+                <a href="faq.html" style="color: var(--cream); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 4px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em;">Read Full FAQ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="padding: 60px; text-align: center; font-size: 0.8rem; color: #000000; border-top: 1px solid var(--border); background: #E5FCF5;">
+        <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 32px; flex-wrap: wrap;">
+            <a href="legal.html#privacy" style="color: #000000; text-decoration: none;">Privacy Policy</a>
+            <a href="legal.html#terms" style="color: #000000; text-decoration: none;">Terms & Conditions</a>
+            <a href="legal.html#refunds" style="color: #000000; text-decoration: none;">Refund Policy</a>
+            <a href="legal.html#disclaimer" style="color: #000000; text-decoration: none;">Disclaimer</a>
+            <a href="legal.html#cookie" style="color: #000000; text-decoration: none;">Cookie Policy</a>
+            <a href="legal.html#data" style="color: #000000; text-decoration: none;">Data Deletion Policy</a>
+            <a href="legal.html#academic" style="color: #000000; text-decoration: none;">Academic Integrity Policy</a>
+            <a href="https://linkedin.com/company/beyondbridge" target="_blank" style="color: #000000; text-decoration: none;">LinkedIn</a>
+            <a href="mailto:connect@beyond-bridge.com" style="color: #000000; text-decoration: none;">connect@beyond-bridge.com</a>
+        </div>
+        <p>&copy; 2026 Beyond Bridge Advisory. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Client side auth check to prevent direct access
+        window.onload = function() {
+            if(localStorage.getItem('loggedIn') !== 'true') {
+                window.location.href = 'index.html'; // Redirect to login
+            }
+        };
+
+        function handleLogout() {
+            localStorage.removeItem('loggedIn');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

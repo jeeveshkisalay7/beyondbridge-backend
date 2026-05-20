@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+  <title>BeyondBridge</title>
+  <desc>Text-only transparent logo for BeyondBridge</desc>
+  <g fill="none">
+    <!-- Background intentionally left transparent -->
+  </g>
+  <style>
+    .font-display { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; }
+    .beyond { fill: #000000; font-size: 72px; letter-spacing: -1px; }
+    .bridge { fill: #b71c1c; font-size: 72px; font-weight: 800; letter-spacing: -1px; }
+  </style>
+  <text x="0" y="120" class="font-display beyond">Beyond</text>
+  <text x="260" y="120" class="font-display bridge">Bridge.</text>
+</svg>

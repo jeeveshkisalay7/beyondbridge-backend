@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Bridge Advisory</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body { opacity: 0; animation: fadeIn 0.8s ease forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .section-padding { padding: 120px 60px; max-width: 1200px; margin: 0 auto; }
+        .text-center { text-align: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .card { padding: 48px; border: 1px solid var(--border); background: var(--dark); transition: transform 0.3s; position: relative;}
+        .card:hover { transform: translateY(-8px); }
+        .btn-primary { background: var(--accent); color: var(--dark); padding: 16px 32px; border-radius: 2px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s; }
+        .btn-primary:hover { background: #d32f2f; }
+    </style>
+    <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 24px 60px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #ffffff; backdrop-filter: blur(10px); z-index: 100;">
+
+
+
+
+
+        <a href="home.html" style="text-decoration: none; display: flex; align-items: center;">
+            <img src="assets/custom-logo.png" alt="Beyond Bridge" class="logo-main" style="height: 48px; object-fit: contain; margin-top: -6px;">
+        </a>
+        
+                <div class="nav-desktop-links" style="display: flex; gap: 24px; align-items: center; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">
+            <a href="home.html" style="color: var(--cream); text-decoration: none;">Home</a>
+            <a href="about.html" style="color: var(--cream); text-decoration: none;">About</a>
+            <a href="mariners.html" style="color: var(--cream); text-decoration: none;">For Mariners</a>
+            <a href="defence.html" style="color: var(--cream); text-decoration: none;">For Defence</a>
+            <a href="services.html" style="color: var(--cream); text-decoration: none;">Services</a>
+            <a href="pricing.html" style="color: var(--cream); text-decoration: none;">Pricing</a>
+            <a href="contact.html" style="color: var(--cream); text-decoration: none;">Contact</a>
+            
+            <!-- Dropdown -->
+            <div class="nav-dropdown">
+                <button class="nav-dropbtn" style="background: none; border: none; color: var(--text-dim); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 4px; font-family: var(--font-sans);">
+                    More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="nav-dropdown-content">
+                    <a href="pathways.html">MBA Pathways</a>
+                    <a href="process.html">Our Process</a>
+                    <a href="resources.html">Resources</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            
+            <a href="dashboard.html" class="nav-logged-in" style="color: var(--cream); text-decoration: none; border-left: 1px solid var(--border); padding-left: 24px;">Dashboard</a>
+            <a href="#" class="nav-logged-in" onclick="handleLogout()" style="color: var(--text-dim); text-decoration: none;">Logout</a>
+        </div>
+
+    </nav>
+
+    <section class="section-padding text-center">
+        <h1 style="font-family: var(--font-display); font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.05; margin-bottom: 32px;" class="fade-enter visible">Start with one honest conversation.</h1>
+        <p style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--cream); max-width: 800px; margin: 0 auto 48px;" class="fade-enter visible">Tell us where you are, where you want to go, and what is stopping you. We will help you understand the right MBA pathway and next steps.</p>
+    </section>
+    <section style="background: var(--charcoal); border-top: 1px solid var(--border);">
+        <div class="section-padding" style="max-width: 800px; margin: 0 auto;">
+            
+            <form id="booking-form" class="auth-form fade-enter visible" style="padding: 56px; border: 1px solid var(--border); background: var(--dark);">
+                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                    <div class="field" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="color: var(--cream); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Full Name</label>
+                        <input type="text" id="b-name" required placeholder="John Doe" style="background: var(--charcoal); border: 1px solid var(--border); color: var(--cream); padding: 16px; outline: none;">
+                    </div>
+                    <div class="field" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="color: var(--cream); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Email</label>
+                        <input type="email" id="b-email" required placeholder="you@example.com" style="background: var(--charcoal); border: 1px solid var(--border); color: var(--cream); padding: 16px; outline: none;">
+                    </div>
+                </div>
+                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                    <div class="field" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="color: var(--cream); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">WhatsApp Number</label>
+                        <input type="text" id="b-phone" required placeholder="+91..." style="background: var(--charcoal); border: 1px solid var(--border); color: var(--cream); padding: 16px; outline: none;">
+                    </div>
+                    <div class="field" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="color: var(--cream); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Current Profession</label>
+                        <select id="b-profession" style="background: var(--charcoal); border: 1px solid var(--border); color: var(--cream); padding: 16px; outline: none;">
+                            <option value="Merchant Navy">Merchant Navy</option>
+                            <option value="Defence / Ex-Defence">Defence / Ex-Defence</option>
+                            <option value="Other Service Background">Other Service Background</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                    <div class="field" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="color: var(--cream); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Rank / Designation</label>
+                        <input type="text" id="b-rank" required placeholder="e.g. Chief Officer" style="background: var(--charcoal); border: 1px solid var(--border); color: var(--cream); padding: 16px; outline: none;">
+                    </div>
+                    <div class="field" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="color: var(--cream); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Years of Experience</label>
+                        <input type="number" id="b-exp" required placeholder="e.g. 5" style="background: var(--charcoal); border: 1px solid var(--border); color: var(--cream); padding: 16px; outline: none;">
+                    </div>
+                </div>
+                
+                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                    <div class="field" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="color: var(--cream); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Target MBA Year</label>
+                        <input type="text" id="b-year" required placeholder="2026/2027" style="background: var(--charcoal); border: 1px solid var(--border); color: var(--cream); padding: 16px; outline: none;">
+                    </div>
+                    <div class="field" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="color: var(--cream); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">GMAT Status</label>
+                        <input type="text" id="b-gmat" required placeholder="Taken/Planning/Exempt" style="background: var(--charcoal); border: 1px solid var(--border); color: var(--cream); padding: 16px; outline: none;">
+                    </div>
+                </div>
+
+                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                    <div class="field" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="color: var(--cream); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Current Location</label>
+                        <input type="text" id="b-loc" required placeholder="City, Country" style="background: var(--charcoal); border: 1px solid var(--border); color: var(--cream); padding: 16px; outline: none;">
+                    </div>
+                    <div class="field" style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="color: var(--cream); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Preferred Geography</label>
+                        <input type="text" id="b-geo" required placeholder="India/US/Europe/UK" style="background: var(--charcoal); border: 1px solid var(--border); color: var(--cream); padding: 16px; outline: none;">
+                    </div>
+                </div>
+
+                <div class="field" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
+                    <label style="color: var(--cream); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Target Schools (if any)</label>
+                    <input type="text" id="b-schools" placeholder="ISB, INSEAD, LBS, etc." style="background: var(--charcoal); border: 1px solid var(--border); color: var(--cream); padding: 16px; outline: none;">
+                </div>
+
+                <div class="field" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
+                    <label style="color: var(--cream); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Main Concern or Goal</label>
+                    <textarea id="b-concern" required placeholder="What do you need help with?" style="background: var(--charcoal); border: 1px solid var(--border); color: var(--cream); padding: 16px; outline: none; min-height: 120px; font-family: var(--font-sans);"></textarea>
+                </div>
+                
+                <div class="field" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
+                    <label style="color: var(--cream); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Upload Resume (PDF)</label>
+                    <input type="file" id="b-resume" accept=".pdf" style="background: var(--charcoal); border: 1px solid var(--border); color: var(--cream); padding: 16px; outline: none;">
+                </div>
+
+                <div class="field" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px;">
+                    <label style="color: var(--cream); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;">Select Package</label>
+                    <select id="b-package" style="background: var(--charcoal); border: 1px solid var(--border); color: var(--cream); padding: 16px; outline: none;">
+                        <option value="free_discovery">Free Discovery Call (Free)</option>
+                        <option value="bridge_diagnostic">BridgeStart Profile Diagnostic (₹1,999)</option>
+                        <option value="resume_linkedin">Resume & LinkedIn Transformation (₹4,999)</option>
+                        <option value="single_india">Single School India MBA Advisory (₹19,999)</option>
+                        <option value="three_india">Three-School India MBA Pack (₹59,999)</option>
+                        <option value="single_global">Single School Global MBA Advisory (₹39,999)</option>
+                        <option value="global_three">Global MBA 3-School Pack (₹99,999)</option>
+                        <option value="mba360">MBA360 Premium Advisory (₹1,99,999)</option>
+                        <option value="interview_mastery">Interview Mastery Pack (₹11,999)</option>
+                        <option value="ding_analysis">Reapplicant / Ding Analysis (₹9,999)</option>
+                        <option value="hourly_advisory">Hourly Advisory (₹3,999/hr)</option>
+                    </select>
+                </div>
+
+                <div id="booking-error" class="error-msg"></div>
+                <button type="submit" class="btn-primary" style="width: 100%; padding: 16px; margin-top: 16px;">Proceed to Booking</button>
+            </form>
+
+            
+            <div class="text-center" style="margin-top: 48px;">
+                <p style="color: var(--text-dim);">Or reach us directly at:</p>
+                <a href="mailto:connect@beyond-bridge.com" style="color: var(--accent); text-decoration: none; font-size: 1.2rem;">connect@beyond-bridge.com</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer style="padding: 60px; text-align: center; font-size: 0.8rem; color: var(--text-dim); border-top: 1px solid var(--border); background: var(--charcoal);">
+        <div style="margin-bottom: 32px;">
+            <img src="assets/logo.png" alt="Beyond Bridge" class="logo-main" style="height: 40px;">
+        </div>
+        <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 32px; flex-wrap: wrap;">
+            <a href="legal.html" style="color: var(--text-muted); text-decoration: none;">Privacy & Legal</a>
+            <a href="mailto:connect@beyond-bridge.com" style="color: var(--text-muted); text-decoration: none;">connect@beyond-bridge.com</a>
+        </div>
+        <p>&copy; 2026 Beyond Bridge Advisory. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Ensure user is logged in for subpages
+        window.onload = function() {
+            if(localStorage.getItem('loggedIn') !== 'true') {
+                window.location.href = 'index.html';
+            }
+        };
+
+        function handleLogout() {
+            localStorage.removeItem('loggedIn');
+            window.location.href = 'index.html';
+        }
+    </script>
+
+    <script>
+        const cashfree = Cashfree({ mode: "sandbox" });
+
+        document.getElementById('booking-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type=submit]');
+            btn.classList.add('loading');
+            const errEl = document.getElementById('booking-error');
+            errEl.classList.remove('show');
+
+            const formData = new FormData();
+            formData.append('fullName', document.getElementById('b-name').value);
+            formData.append('email', document.getElementById('b-email').value);
+            formData.append('phone', document.getElementById('b-phone').value);
+            formData.append('profession', document.getElementById('b-profession').value);
+            formData.append('rankDesignation', document.getElementById('b-rank').value);
+            formData.append('yearsExperience', document.getElementById('b-exp').value);
+            formData.append('targetMbaYear', document.getElementById('b-year').value);
+            formData.append('gmatStatus', document.getElementById('b-gmat').value);
+            formData.append('currentLocation', document.getElementById('b-loc').value);
+            formData.append('preferredGeography', document.getElementById('b-geo').value);
+            formData.append('targetSchools', document.getElementById('b-schools').value);
+            formData.append('mainConcern', document.getElementById('b-concern').value);
+            
+            const resumeFile = document.getElementById('b-resume').files[0];
+            if(resumeFile) formData.append('resume', resumeFile);
+
+            const packageId = document.getElementById('b-package').value;
+            
+            const token = localStorage.getItem('token');
+            const headers = {};
+            if(token) headers['Authorization'] = `Bearer ${token}`;
+
+            try {
+                // 1. Submit form
+                let res = await fetch('https://beyondbridge-backend-1.onrender.com/api/booking/submit', {
+                    method: 'POST',
+                    headers: headers,
+                    body: formData
+                });
+                let data = await res.json();
+                
+                if (!res.ok) {
+                    throw new Error(data.error || 'Failed to submit form');
+                }
+
+                const bookingId = data.bookingId;
+
+                // 2. Create Payment
+                res = await fetch('https://beyondbridge-backend-1.onrender.com/api/booking/create-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        ...headers
+                    },
+                    body: JSON.stringify({
+                        bookingId,
+                        packageId,
+                        customerName: document.getElementById('b-name').value,
+                        customerEmail: document.getElementById('b-email').value,
+                        customerPhone: document.getElementById('b-phone').value
+                    })
+                });
+                data = await res.json();
+                btn.classList.remove('loading');
+
+                if (!res.ok) {
+                    throw new Error(data.error || 'Failed to initialize payment');
+                }
+
+                if (data.isFree) {
+                    showNotif(data.message);
+                    document.getElementById('booking-form').reset();
+                } else {
+                    // Redirect to Cashfree checkout
+                    cashfree.checkout({ paymentSessionId: data.paymentSessionId });
+                }
+
+            } catch (err) {
+                btn.classList.remove('loading');
+                errEl.textContent = err.message || 'An error occurred during booking.';
+                errEl.classList.add('show');
+            }
+        });
+    </script>
+
+</body>
+</html>

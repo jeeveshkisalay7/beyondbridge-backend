@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ConsultCo — MBA & Maritime Advisory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+
+
+
+
+
+    <!-- ──────────────────────────────────────────────────────────────
+       NOTIFICATION BANNER
+  ─────────────────────────────────────────────────────────────── -->
+    <div class="notif" id="notif">✓ Account created — check your inbox</div>
+
+    <!-- ──────────────────────────────────────────────────────────────
+       SCREEN 1 — LANDING
+  ─────────────────────────────────────────────────────────────── -->
+    <div class="screen" id="screen-landing" role="button" tabindex="0" aria-label="Enter site">
+        <!-- Border Beam Animation Element -->
+        <div class="border-beam-wrapper"></div>
+        
+        <div class="landing-inner">
+            <p class="landing-eyebrow">MBA &amp; Career Transition Advisory</p>
+            <div class="landing-logo" style="margin: 24px 0;">
+                <img src="assets/custom-logo.png" alt="Beyond Bridge" class="logo-main" style="height: 64px;">
+            </div>
+            <p class="landing-tagline">Navigating the Shift.</p>
+            <p id="landing-stagger-text" style="font-family: var(--font-sans); font-size: 0.9rem; color: var(--text-dim); margin-top: 12px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <span style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.30s forwards;">From</span>
+                <span style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.36s forwards;">Sea</span>
+                <span style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.42s forwards;">&amp;</span>
+                <span style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.48s forwards;">Service</span>
+                <span style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.54s forwards;">to</span>
+                <span style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.60s forwards;">the</span>
+                <span style="display: inline-block; opacity: 0; transform: translateY(12px); animation: fadeUp 0.9s var(--ease-expo) 1.66s forwards;">Boardroom.</span>
+            </p>
+            <p class="landing-cta">Click anywhere to enter</p>
+        </div>
+    </div>
+
+    <!-- ──────────────────────────────────────────────────────────────
+       SCREEN 2 — AUTH
+  ─────────────────────────────────────────────────────────────── -->
+    <div class="screen hidden" id="screen-auth" style="z-index: 1000;">
+        <!-- Close Button -->
+        <button onclick="closeAuth()" style="position: absolute; top: 30px; right: 40px; background: none; border: none; color: var(--warm-white); font-size: 2rem; cursor: pointer; z-index: 100;">&times;</button>
+
+
+        <!-- LEFT: branding panel -->
+        <div class="auth-panel-left">
+            <div class="auth-brand fade-enter">
+                <img src="assets/custom-logo.png" alt="Beyond Bridge" class="logo-main" style="height: 52px; object-fit: contain; margin-bottom: 12px;">
+                <div class="auth-brand-tag">MBA &amp; Career Transition Advisory</div>
+            </div>
+
+            <div class="auth-panel-quote fade-enter" style="transition-delay:0.15s">
+                <blockquote>
+                    "We help operational leaders translate command experience into compelling MBA and leadership narratives."
+                    <cite>— Beyond Bridge</cite>
+                </blockquote>
+            </div>
+        </div>
+
+        <!-- RIGHT: form panel -->
+        <div class="auth-panel-right">
+
+            <!-- Tab switcher -->
+            <div class="auth-tabs fade-enter">
+                <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Login</button>
+                <button class="auth-tab" id="tab-signup" onclick="switchTab('signup')">Sign Up</button>
+            </div>
+
+            <!-- ── LOGIN FORM ── -->
+            <div id="form-login" class="fade-enter" style="transition-delay:0.1s">
+                <h2 class="auth-heading">Welcome back.</h2>
+                <p class="auth-subheading">Sign in to your advisory portal.</p>
+
+                <form class="auth-form" onsubmit="handleLogin(event)">
+                    <div class="field">
+                        <label for="li-email">Email Address</label>
+                        <input type="email" id="li-email" placeholder="you@example.com" required />
+                    </div>
+
+                    <div class="field">
+                        <label for="li-pw">Password</label>
+                        <input type="password" id="li-pw" placeholder="••••••••" required />
+                        <a href="#" class="forgot-link"
+                            onclick="showNotif('Password reset link sent to your email.'); return false;">Forgot
+                            password?</a>
+                    </div>
+
+                    <!-- Subscribe checkbox (login-specific per requirements) -->
+                    <div class="check-row">
+                        <input type="checkbox" id="subscribe-blog" />
+                        <label for="subscribe-blog">
+                            Subscribe to Beyond Bridge insights, MBA guidance, and leadership resources.
+                        </label>
+                    </div>
+
+                    <div class="check-row">
+                        <input type="checkbox" id="terms-login" required />
+                        <label for="terms-login">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy
+                                Policy</a></label>
+                    </div>
+
+                    <div class="error-msg" id="login-error">Invalid credentials. Please try again.</div>
+
+                    <button class="btn-primary" type="submit" style="position:relative" id="btn-login-submit">
+                        Sign In
+                        <span class="spinner"></span>
+                    </button>
+                    
+                    <div id="otp-container-login" style="display:none; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border);"></div>
+                </form>
+            </div>
+
+            <!-- ── SIGN UP FORM ── -->
+            <div id="form-signup" style="display:none">
+                <h2 class="auth-heading">Join the network.</h2>
+                <p class="auth-subheading">Create your profile to access advisory services.</p>
+
+                <div class="success-msg" id="signup-success">
+                    🎉 Your application has been received. A confirmation has been sent to your email and WhatsApp. Our
+                    team will be in touch within 24 hours.
+                </div>
+
+                <form class="auth-form" id="signup-form" onsubmit="handleSignup(event)">
+
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="su-first">First Name</label>
+                            <input type="text" id="su-first" placeholder="First Name" required />
+                        </div>
+                        <div class="field">
+                            <label for="su-last">Last Name</label>
+                            <input type="text" id="su-last" placeholder="Last Name" required />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="su-email">Email Address</label>
+                        <input type="email" id="su-email" placeholder="you@example.com" required />
+                    </div>
+
+                    <div class="field">
+                        <label>WhatsApp Number</label>
+                        <div class="phone-wrap">
+                            <select class="phone-code" id="su-country-code">
+                                <option value="+91">🇮🇳 +91</option>
+                                <option value="+1">🇺🇸 +1</option>
+                                <option value="+44">🇬🇧 +44</option>
+                                <option value="+971">🇦🇪 +971</option>
+                                <option value="+65">🇸🇬 +65</option>
+                                <option value="+60">🇲🇾 +60</option>
+                                <option value="+61">🇦🇺 +61</option>
+                                <option value="+49">🇩🇪 +49</option>
+                                <option value="+33">🇫🇷 +33</option>
+                            </select>
+                            <input type="tel" class="phone-input" id="su-phone" placeholder="98765 43210" required />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="su-profession">Professional Background</label>
+                        <select id="su-profession" required>
+                            <option value="" disabled selected>Select your background</option>
+                            <option value="merchant_navy">Merchant Navy</option>
+                            <option value="defence">Defence</option>
+                            <option value="veteran">Veteran</option>
+                            <option value="logistics">Logistics</option>
+                            <option value="operations">Operations</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="su-designation">Current Designation</label>
+                            <input type="text" id="su-designation" placeholder="E.g. Chief Officer" required />
+                        </div>
+                        <div class="field">
+                            <label for="su-experience">Years of Experience</label>
+                            <input type="number" id="su-experience" placeholder="E.g. 8" required min="0" />
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="su-geography">Target MBA Geography</label>
+                        <select id="su-geography" required>
+                            <option value="" disabled selected>Select geography</option>
+                            <option value="india">India</option>
+                            <option value="abroad">Abroad</option>
+                            <option value="both">Both</option>
+                        </select>
+                    </div>
+
+                    <!-- ⚠️ More fields will be added here by client -->
+
+                    <div class="field">
+                        <label for="su-pw">Create Password</label>
+                        <input type="password" id="su-pw" placeholder="Min. 8 characters" required
+                            oninput="checkPwStrength(this.value)" />
+                        <div class="pw-strength">
+                            <div class="pw-bar" id="bar1"></div>
+                            <div class="pw-bar" id="bar2"></div>
+                            <div class="pw-bar" id="bar3"></div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="su-pw2">Confirm Password</label>
+                        <input type="password" id="su-pw2" placeholder="Repeat password" required />
+                    </div>
+
+                    <div class="check-row">
+                        <input type="checkbox" id="su-terms" required />
+                        <label for="su-terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy
+                                Policy</a></label>
+                    </div>
+
+                    <div class="error-msg" id="signup-error"></div>
+
+                    <button class="btn-primary" type="submit" style="position:relative" id="btn-signup-submit">
+                        Create Account
+                        <span class="spinner"></span>
+                    </button>
+                    
+                    <div id="otp-container-signup" style="display:none; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border);"></div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- ──────────────────────────────────────────────────────────────
+       SCRIPTS
+  ─────────────────────────────────────────────────────────────── -->
+    <script>
+                /* ── Login handler ──────────────────────────────────────────── */
+        async function handleLogin(e) {
+            e.preventDefault();
+            const btn = e.submitter || e.target.querySelector('button[type=submit]');
+            btn.classList.add('loading');
+
+            const email = document.getElementById('li-email').value;
+            const password = document.getElementById('li-pw').value;
+            const subscribed = document.getElementById('subscribe-blog').checked;
+
+            try {
+                const res = await fetch('https://beyondbridge-backend-1.onrender.com/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password, subscribeBlog: subscribed })
+                });
+                const data = await res.json();
+                btn.classList.remove('loading');
+
+                if (res.ok) {
+                    localStorage.setItem('loggedIn', 'true');
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('subscribed', subscribed ? 'true' : 'false');
+                    showNotif('✓ Signed in successfully.');
+                    setTimeout(() => {
+                        window.location.href = 'home.html';
+                    }, 1200);
+                } else {
+                    if(data.needsVerification) {
+                        showNotif('⚠️ Please verify your email first.');
+                        showOTPScreen(email);
+                    } else {
+                        showNotif('❌ ' + data.error);
+                    }
+                }
+            } catch (err) {
+                btn.classList.remove('loading');
+                showNotif('❌ Failed to connect to backend server');
+            }
+        }
+
+        /* ── Signup handler ──────────────────────────────────────────── */
+        async function handleSignup(e) {
+            e.preventDefault();
+
+            const pw = document.getElementById('su-pw').value;
+            const pw2 = document.getElementById('su-pw2').value;
+            const errEl = document.getElementById('signup-error');
+
+            if (pw !== pw2) {
+                errEl.textContent = 'Passwords do not match.';
+                errEl.classList.add('show');
+                return;
+            }
+            if (pw.length < 8) {
+                errEl.textContent = 'Password must be at least 8 characters.';
+                errEl.classList.add('show');
+                return;
+            }
+            errEl.classList.remove('show');
+
+            const btn = e.target.querySelector('button[type=submit]');
+            btn.classList.add('loading');
+
+            const payload = {
+                firstName: document.getElementById('su-first').value,
+                lastName: document.getElementById('su-last').value,
+                email: document.getElementById('su-email').value,
+                phone: document.getElementById('su-country-code').value + document.getElementById('su-phone').value,
+                profession: document.getElementById('su-profession').value,
+                designation: document.getElementById('su-designation').value,
+                experience: document.getElementById('su-experience').value,
+                geography: document.getElementById('su-geography').value,
+                password: pw
+            };
+
+            try {
+                const res = await fetch('https://beyondbridge-backend-1.onrender.com/api/auth/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                btn.classList.remove('loading');
+                
+                if (res.ok) {
+                    showOTPScreen(payload.email);
+                } else {
+                    errEl.textContent = data.error;
+                    errEl.classList.add('show');
+                }
+            } catch (err) {
+                btn.classList.remove('loading');
+                errEl.textContent = 'Failed to connect to backend server';
+                errEl.classList.add('show');
+            }
+        }
+
+        let currentSignupEmail = '';
+        function showOTPScreen(email) {
+            currentSignupEmail = email;
+            
+            // Determine which form is active
+            const isLogin = document.getElementById('tab-login').classList.contains('active');
+            const targetContainer = isLogin ? document.getElementById('otp-container-login') : document.getElementById('otp-container-signup');
+            const targetBtn = isLogin ? document.getElementById('btn-login-submit') : document.getElementById('btn-signup-submit');
+            
+            // Hide the submit button
+            targetBtn.style.display = 'none';
+            
+            // Show success message if signing up
+            if (!isLogin) {
+                document.getElementById('signup-success').classList.add('show');
+            }
+            
+            // Inject OTP UI matching the system
+            targetContainer.style.display = 'block';
+            targetContainer.innerHTML = `
+                <h3 class="auth-heading" style="font-size: 1.4rem; margin-bottom: 8px;">Verify Your Email</h3>
+                <p class="auth-subheading" style="margin-bottom: 24px;">We sent a 6-digit code to <strong>${email}</strong>.</p>
+                
+                <div class="field">
+                    <label for="su-otp">Verification Code</label>
+                    <input type="text" id="su-otp" placeholder="Enter 6-digit OTP" maxlength="6" style="letter-spacing: 4px; text-align: center; font-size: 1.2rem; font-weight: bold;">
+                </div>
+                
+                <div id="otp-error" class="error-msg"></div>
+                
+                <button type="button" onclick="verifyOTP()" class="btn-primary" style="margin-bottom: 12px; position:relative">
+                    Verify Code
+                    <span class="spinner" id="otp-spinner"></span>
+                </button>
+                <button type="button" onclick="resendOTP()" class="btn-ghost" style="width: 100%;">Resend Code</button>
+            `;
+            
+            // Scroll to it
+            targetContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }
+
+        async function verifyOTP() {
+            const otp = document.getElementById('su-otp').value;
+            const errEl = document.getElementById('otp-error');
+            if(!otp || otp.length !== 6) {
+                errEl.textContent = 'Please enter a valid 6-digit code.';
+                errEl.classList.add('show');
+                return;
+            }
+            errEl.classList.remove('show');
+
+            try {
+                const res = await fetch('https://beyondbridge-backend-1.onrender.com/api/auth/verify-otp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: currentSignupEmail, otp })
+                });
+                const data = await res.json();
+                
+                if (res.ok) {
+                    localStorage.setItem('loggedIn', 'true');
+                    localStorage.setItem('token', data.token);
+                    showNotif('✓ Email verified! Welcome to BeyondBridge.');
+                    setTimeout(() => {
+                        window.location.href = 'home.html';
+                    }, 1200);
+                } else {
+                    errEl.textContent = data.error;
+                    errEl.classList.add('show');
+                }
+            } catch (err) {
+                errEl.textContent = 'Failed to connect to backend server';
+                errEl.classList.add('show');
+            }
+        }
+
+        async function resendOTP() {
+            try {
+                const res = await fetch('https://beyondbridge-backend-1.onrender.com/api/auth/resend-otp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: currentSignupEmail })
+                });
+                const data = await res.json();
+                if(res.ok) {
+                    showNotif('✓ New OTP sent to your email.');
+                } else {
+                    showNotif('❌ ' + data.error);
+                }
+            } catch (err) {
+                showNotif('❌ Failed to resend OTP.');
+            }
+        }
+
+        // ── UI Helpers: open/close auth, tab switching, notifications
+        document.getElementById('screen-landing').addEventListener('click', () => {
+            const landing = document.getElementById('screen-landing');
+            const auth = document.getElementById('screen-auth');
+
+            // graceful exit animation for landing
+            landing.classList.add('landing-exiting');
+            setTimeout(() => {
+                landing.classList.add('hidden');
+                auth.classList.remove('hidden');
+
+                // reveal auth fade-enter items
+                auth.querySelectorAll('.fade-enter').forEach(el => el.classList.add('visible'));
+            }, 450);
+        });
+
+        function closeAuth() {
+            const landing = document.getElementById('screen-landing');
+            const auth = document.getElementById('screen-auth');
+
+            // hide auth content
+            auth.querySelectorAll('.fade-enter').forEach(el => el.classList.remove('visible'));
+            auth.classList.add('hidden');
+
+            // bring back landing
+            landing.classList.remove('hidden');
+            landing.classList.remove('landing-exiting');
+        }
+
+        function switchTab(tab) {
+            const loginTab = document.getElementById('tab-login');
+            const signupTab = document.getElementById('tab-signup');
+            const loginForm = document.getElementById('form-login');
+            const signupForm = document.getElementById('form-signup');
+
+            if (tab === 'login') {
+                loginTab.classList.add('active');
+                signupTab.classList.remove('active');
+                loginForm.style.display = '';
+                signupForm.style.display = 'none';
+            } else {
+                loginTab.classList.remove('active');
+                signupTab.classList.add('active');
+                loginForm.style.display = 'none';
+                signupForm.style.display = '';
+            }
+        }
+
+        function showNotif(msg, timeout = 3000) {
+            const el = document.getElementById('notif');
+            el.textContent = msg;
+            el.classList.add('visible');
+            setTimeout(() => el.classList.remove('visible'), timeout);
+        }
+
+    </script>
+
+</body>
+
+</html>

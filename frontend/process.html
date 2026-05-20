@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Bridge Advisory</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body { opacity: 0; animation: fadeIn 0.8s ease forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .section-padding { padding: 120px 60px; max-width: 1200px; margin: 0 auto; }
+        .text-center { text-align: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .card { padding: 48px; border: 1px solid var(--border); background: var(--dark); transition: transform 0.3s; position: relative;}
+        .card:hover { transform: translateY(-8px); }
+        .btn-primary { background: var(--accent); color: var(--dark); padding: 16px 32px; border-radius: 2px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; font-weight: bold; border: none; cursor: pointer; transition: background 0.3s; }
+        .btn-primary:hover { background: #d32f2f; }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 24px 60px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: #ffffff; backdrop-filter: blur(10px); z-index: 100;">
+
+
+
+
+
+        <a href="home.html" style="text-decoration: none; display: flex; align-items: center;">
+            <img src="assets/custom-logo.png" alt="Beyond Bridge" class="logo-main" style="height: 48px; object-fit: contain; margin-top: -6px;">
+        </a>
+        
+                <div class="nav-desktop-links" style="display: flex; gap: 24px; align-items: center; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;">
+            <a href="home.html" style="color: var(--cream); text-decoration: none;">Home</a>
+            <a href="about.html" style="color: var(--cream); text-decoration: none;">About</a>
+            <a href="mariners.html" style="color: var(--cream); text-decoration: none;">For Mariners</a>
+            <a href="defence.html" style="color: var(--cream); text-decoration: none;">For Defence</a>
+            <a href="services.html" style="color: var(--cream); text-decoration: none;">Services</a>
+            <a href="pricing.html" style="color: var(--cream); text-decoration: none;">Pricing</a>
+            <a href="contact.html" style="color: var(--cream); text-decoration: none;">Contact</a>
+            
+            <!-- Dropdown -->
+            <div class="nav-dropdown">
+                <button class="nav-dropbtn" style="background: none; border: none; color: var(--text-dim); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 4px; font-family: var(--font-sans);">
+                    More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <div class="nav-dropdown-content">
+                    <a href="pathways.html">MBA Pathways</a>
+                    <a href="process.html">Our Process</a>
+                    <a href="resources.html">Resources</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+            
+            <a href="dashboard.html" class="nav-logged-in" style="color: var(--cream); text-decoration: none; border-left: 1px solid var(--border); padding-left: 24px;">Dashboard</a>
+            <a href="#" class="nav-logged-in" onclick="handleLogout()" style="color: var(--text-dim); text-decoration: none;">Logout</a>
+        </div>
+
+    </nav>
+
+    <section class="section-padding text-center">
+        <h1 style="font-family: var(--font-display); font-size: clamp(3rem, 5vw, 4.5rem); line-height: 1.05; margin-bottom: 32px;" class="fade-enter visible">A structured journey from confusion to confident submission.</h1>
+    </section>
+    <section style="background: var(--charcoal); border-top: 1px solid var(--border);">
+        <div class="section-padding" style="max-width: 800px;">
+            <div style="border-left: 1px solid var(--accent); padding-left: 40px; margin-left: 20px;">
+                <div style="margin-bottom: 48px; position: relative;">
+                    <div style="position: absolute; left: -46px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent);"></div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 8px; color: var(--cream);">Step 1: Discovery</h3>
+                    <p style="color: var(--text-dim);">We understand your background, goals, constraints, budget, geography preference, and career ambition.</p>
+                </div>
+                <div style="margin-bottom: 48px; position: relative;">
+                    <div style="position: absolute; left: -46px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent);"></div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 8px; color: var(--cream);">Step 2: Profile Diagnosis</h3>
+                    <p style="color: var(--text-dim);">We evaluate your strengths, gaps, differentiators, and risk areas.</p>
+                </div>
+                <div style="margin-bottom: 48px; position: relative;">
+                    <div style="position: absolute; left: -46px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent);"></div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 8px; color: var(--cream);">Step 3: MBA Pathway Design</h3>
+                    <p style="color: var(--text-dim);">We recommend the right MBA path: Indian one-year, global, executive, or specialized.</p>
+                </div>
+                <div style="margin-bottom: 48px; position: relative;">
+                    <div style="position: absolute; left: -46px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent);"></div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 8px; color: var(--cream);">Step 4: Story Architecture</h3>
+                    <p style="color: var(--text-dim);">We build your narrative: who you are, what shaped you, why MBA, why now, and why this school.</p>
+                </div>
+                <div style="margin-bottom: 48px; position: relative;">
+                    <div style="position: absolute; left: -46px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent);"></div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 8px; color: var(--cream);">Step 5: Application Build</h3>
+                    <p style="color: var(--text-dim);">We work on resume, essays, SOPs, application forms, and recommendation strategy.</p>
+                </div>
+                <div style="margin-bottom: 48px; position: relative;">
+                    <div style="position: absolute; left: -46px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent);"></div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 8px; color: var(--cream);">Step 6: Review & Refinement</h3>
+                    <p style="color: var(--text-dim);">We review for clarity, authenticity, school fit, and business relevance.</p>
+                </div>
+                <div style="margin-bottom: 48px; position: relative;">
+                    <div style="position: absolute; left: -46px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent);"></div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 8px; color: var(--cream);">Step 7: Interview Preparation</h3>
+                    <p style="color: var(--text-dim);">We conduct mocks, refine answers, and prepare you for school-specific interviews.</p>
+                </div>
+                <div style="position: relative;">
+                    <div style="position: absolute; left: -46px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent);"></div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 8px; color: var(--cream);">Step 8: Final Submission & Beyond</h3>
+                    <p style="color: var(--text-dim);">We help with final checks, waitlist strategy, scholarships, and career transition direction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer style="padding: 60px; text-align: center; font-size: 0.8rem; color: var(--text-dim); border-top: 1px solid var(--border); background: var(--charcoal);">
+        <div style="margin-bottom: 32px;">
+            <img src="assets/logo.png" alt="Beyond Bridge" class="logo-main" style="height: 40px;">
+        </div>
+        <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 32px; flex-wrap: wrap;">
+            <a href="legal.html" style="color: var(--text-muted); text-decoration: none;">Privacy & Legal</a>
+            <a href="mailto:connect@beyond-bridge.com" style="color: var(--text-muted); text-decoration: none;">connect@beyond-bridge.com</a>
+        </div>
+        <p>&copy; 2026 Beyond Bridge Advisory. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Ensure user is logged in for subpages
+        window.onload = function() {
+            if(localStorage.getItem('loggedIn') !== 'true') {
+                window.location.href = 'index.html';
+            }
+        };
+
+        function handleLogout() {
+            localStorage.removeItem('loggedIn');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
