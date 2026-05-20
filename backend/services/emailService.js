@@ -42,13 +42,7 @@ async function sendOTPEmail(toEmail, firstName, otp) {
   } catch (err) {
     console.error('Failed to send email. The OTP for', toEmail, 'is:', otp);
     console.error('Email error details:', err.message);
-    
-    // TEMPORARY FIX: Don't crash the signup if email fails.
-    // Instead, log the OTP directly to the terminal so we can test the app!
-    console.log(`\n======================================================`);
-    console.log(`⚠️ EMAIL FAILED TO SEND!`);
-    console.log(`BUT DON'T WORRY, USE THIS OTP TO CONTINUE: ${otp}`);
-    console.log(`======================================================\n`);
+    throw err; // User requested to strictly enforce email sending
   }
 }
 
