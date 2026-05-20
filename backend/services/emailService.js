@@ -11,7 +11,9 @@ const transporter = nodemailer.createTransport({
   },
   tls: {
     rejectUnauthorized: false
-  }
+  },
+  connectionTimeout: 5000, // Fail fast (5 seconds) instead of hanging!
+  greetingTimeout: 5000
 });
 
 // ─── OTP Email ────────────────────────────────────────────
